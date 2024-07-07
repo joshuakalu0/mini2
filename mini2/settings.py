@@ -12,12 +12,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-from environ import Env
+from environs import Env
+
 
 
 env = Env()
 env.read_env()
-
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ SECRET_KEY = 'django-insecure-e&3kc&91r#8#$2(puy6dxvue8&nahg(#8vbpp)(5*fju7tmn4l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.koyeb.app']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -89,16 +90,15 @@ WSGI_APPLICATION = 'mini2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':  env('DATABASE_ENGINE'),
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'ENGINE':  'django.db.backends.postgresql',
+        'NAME':'mini2',
+        'USER': 'avnadmin',
+        'PASSWORD': print(env('DATABASE_PASSWORD')),
+        'HOST': 'pg-4a2e037-ajujoshua2019-4693.k.aivencloud.com',
+        'PORT': '11436',
     }
 }
 AUTH_USER_MODEL = 'userauth.User'
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

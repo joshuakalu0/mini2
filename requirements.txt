@@ -5,11 +5,14 @@ django-cors-headers==4.4.0
 django-environ==0.11.2
 djangorestframework==3.15.2
 djangorestframework-simplejwt==5.3.1
+environs==11.0.0
 gunicorn==22.0.0
 h11==0.14.0
+marshmallow==3.21.3
 packaging==24.1
 psycopg2==2.9.9
 PyJWT==2.8.0
+python-dotenv==1.0.1
 pytz==2024.1
 shortuuid==1.0.13
 sqlparse==0.5.0
